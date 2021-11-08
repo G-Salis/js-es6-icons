@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
 let selectMode = document.getElementById("select_mode");
+console.log(selectMode);
 
 const icons =[
 	{
@@ -115,22 +116,59 @@ const icons =[
 		color: 'blue'
 	}
 ];
+	
+createIcon(icons)
 
 
-function createIcon(){
-    
-	icons.forEach(box => {
-		const name = box.name.toUpperCase();
-		
-		container.innerHTML += `
-		<div class="box">
-			<i class="${box.family} ${box.prefix}${box.name} ${box.color}"></i>
-			<span>${name}</span> 
-		</div>
-		`; 
+	selectMode.addEventListener('change', (event) => {
+		let val = event.target.value;
+		typeIcon(val);
+	
 	});
 
-	console.log(icons);
-}
 
-createIcon();
+	function typeIcon(val) {
+
+		if(val === "Animals"){
+			const animal = icons.filter((element) => element.type === 'animal');
+			createIcon(animal);
+			console.log(animal);
+
+    } else if(val == "Vegetables"){
+			const veg = icons.filter((element) => element.type === 'vegetable');
+			createIcon(veg);
+			console.log(veg);
+
+		}else if(val == "Works"){
+			const work = icons.filter((element) => element.type === 'user');
+			createIcon(work);
+			console.log(work);
+
+		}else{
+			createIcon(icons);
+			console.log(createIcon(icons));
+		}
+		
+	}
+
+	function createIcon(arrayIcon){
+    
+		container.innerHTML = '';
+		arrayIcon.forEach(box => {
+			const name = box.name.toUpperCase();
+			
+			container.innerHTML += `
+			<div class="box ">
+				<i class="${box.family} ${box.prefix}${box.name} ${box.color}"></i>
+				<span>${name}</span> 
+			</div>
+			`; 
+		});
+	
+		console.log(icons);
+	
+		}
+
+		
+	
+		
