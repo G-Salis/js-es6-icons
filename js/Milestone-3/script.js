@@ -117,7 +117,7 @@ const icons =[
 	}
 ];
 	
-createIcon(icons)
+	createIcon(icons);
 
 
 	selectMode.addEventListener('change', (event) => {
