@@ -123,7 +123,7 @@ function createSquare(){
 		
 		container.innerHTML += `
 		<div class="box">
-			<i class="${box.family} ${box.prefix}${box.name}"></i>
+			<i class="${box.family} ${box.prefix}${box.name} ${box.color}"></i>
 			<span>${name}</span> 
 		</div>
 		`; 
